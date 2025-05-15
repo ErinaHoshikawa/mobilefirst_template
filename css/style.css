@@ -21,56 +21,76 @@ body {
     font-family: 'Noto Sans JP', sans-serif;
 }
 
-.nav_wrapper {
+/* .nav_wrapper {
     position: fixed;
     z-index: 5;
     width: 100%;
     top: 50%;
     transform: translateY(-50%);
-}
-.nav_wrapper .nav_list {
+} */
+/* .nav_wrapper .nav_list {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: calc((100% - 450px) / 4);
     z-index: 5;
-}
-.nav_wrapper .nav_list li {
+} */
+/* .nav_wrapper .nav_list li {
     margin-bottom: 10px;
     background-color: #fff;
     border-radius: 10px;
     border: solid 5px #fa8072;
-}
-.nav_wrapper .nav_list li a {
+} */
+/* .nav_wrapper .nav_list li a {
     display: inline-block;
     padding: 20px 40px;
     font-weight: 700;
     color: #000;
-}
+} */
 
 @media screen and (max-width: 1200px) {
     .nav_wrapper {
         display: none;
     }
 }
+.side_l {
+    background-color: #2dc52d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: calc((100% - 450px) / 2);
+    height: 100%;
+}
+.side_r {
+    background-color: #2887ad;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc((100% - 450px) / 2);
+    height: 100%;
+}
 
-.current {
+/* .current {
     background-color: #fa8072 !important;
-}
-.current a {
+} */
+/* .current a {
     color: #fff !important;
-}
+} */
 
-.article {
+.container {
     max-width: 450px;
     margin: 0 auto;
     position: relative;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .article {
         max-width: none;
         width: 100%;
     }
+} */
+header {
+    background-color: #bfe082;
+    height: 80px;
 }
 .article .section {
     padding: 20px;
@@ -95,4 +115,6 @@ body {
 #sec04 {
     background-color: #006400;
     color: #fff;
-} /*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
