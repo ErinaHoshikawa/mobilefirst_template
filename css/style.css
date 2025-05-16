@@ -13,86 +13,112 @@ li {
     list-style: none;
 }
 
+/**** 変数設定 ****/
+:root {
+    --main-width: 450px; /* 真ん中のコンテンツの幅 */
+}
+
+/**** ページ全体 ****/
 body {
     background-color: orange;
+    box-sizing: border-box;
     color: #333333;
     background-attachment: fixed;
     z-index: 1;
     font-family: 'Noto Sans JP', sans-serif;
 }
 
-/* .nav_wrapper {
-    position: fixed;
-    z-index: 5;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-50%);
-} */
-/* .nav_wrapper .nav_list {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: calc((100% - 450px) / 4);
-    z-index: 5;
-} */
-/* .nav_wrapper .nav_list li {
-    margin-bottom: 10px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: solid 5px #fa8072;
-} */
-/* .nav_wrapper .nav_list li a {
-    display: inline-block;
-    padding: 20px 40px;
-    font-weight: 700;
-    color: #000;
-} */
-
-@media screen and (max-width: 1200px) {
-    .nav_wrapper {
-        display: none;
-    }
-}
+/**** PC画面時 左サイド部分 ****/
 .side_l {
     background-color: #2dc52d;
     position: fixed;
     top: 0;
     left: 0;
-    width: calc((100% - 450px) / 2);
+    width: calc((100% - var(--main-width)) / 2);
     height: 100%;
 }
+
+/**** 左サイド部分のロゴ画像 ****/
+.side_l .logo {
+    display: block;
+    width: calc(100% / 2);
+    position: absolute;
+    z-index: 5;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/**** PC画面時 右サイド部分 ****/
 .side_r {
     background-color: #2887ad;
     position: fixed;
     top: 0;
     right: 0;
-    width: calc((100% - 450px) / 2);
+    width: calc((100% - var(--main-width)) / 2);
     height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* .current {
-    background-color: #fa8072 !important;
-} */
-/* .current a {
-    color: #fff !important;
-} */
+.nav_wrapper {
+    position: absolute;
+    z-index: 5;
+}
 
+.nav_wrapper .nav_list li {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+}
+.nav_wrapper .nav_list li a {
+    display: inline-block;
+    font-weight: 700;
+    color: #000;
+    padding: 4px 40px;
+}
+
+.nav_wrapper .nav_list li a:hover {
+    color: #ff7300;
+}
+
+/**** 画面幅1000以下になると、左サイドの中のリストは消えます ****/
+@media screen and (max-width: 1000px) {
+    .nav_wrapper {
+        display: none;
+    }
+}
+
+/**** PC画面時 真ん中パーツ（メインコンテンツが入るスペース） ****/
 .container {
-    max-width: 450px;
+    max-width: var(--main-width);
     margin: 0 auto;
     position: relative;
 }
-/* @media screen and (max-width: 768px) {
-    .article {
+
+/**** 768px以下（タブレットサイズ以下）になると、この部分が画面いっぱいになる ****/
+@media screen and (max-width: 768px) {
+    .container {
         max-width: none;
         width: 100%;
     }
-} */
+    /* ↓真ん中部分が画面いっぱいになったら、左と右サイドは見えなくする
+    （書かなくても真ん中が画面いっぱいになるので外においやられて見えなくなりますが） */
+    .side_l,
+    .side_r {
+        display: none;
+    }
+}
+
+/**** 真ん中のコンテンツ内のCSS ****/
 header {
     background-color: #bfe082;
-    height: 80px;
+    padding: 20px;
 }
-.article .section {
+
+.section {
     padding: 20px;
     height: 1000px;
 }
@@ -103,7 +129,7 @@ header {
 }
 
 #sec02 {
-    background-color: #3cb371;
+    background-color: #ff7300;
     color: #fff;
 }
 
@@ -113,8 +139,10 @@ header {
 }
 
 #sec04 {
-    background-color: #006400;
+    background-color: #ffda09;
     color: #fff;
 }
 
-/*# sourceMappingURL=index.css.map */
+footer {
+    padding: 20px;
+}
