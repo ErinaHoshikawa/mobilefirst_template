@@ -63,12 +63,8 @@ body {
     align-items: center;
 }
 
-.nav_wrapper {
-    position: absolute;
-    z-index: 5;
-}
-
 .nav_wrapper .nav_list li {
+    text-align: center;
     margin-bottom: 20px;
     background-color: #fff;
     border-radius: 16px;
